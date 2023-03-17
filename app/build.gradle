@@ -29,6 +29,14 @@ android {
 
 dependencies {
 
+
+    // nav_version = "2.5.0" //Номер версии может меняться
+    // Feature module Support
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:2.5.3"
+    // Testing Navigation
+    androidTestImplementation "androidx.navigation:navigation-testing:2.5.3"
+    implementation "androidx.navigation:navigation-fragment:2.5.3"
+    implementation "androidx.navigation:navigation-ui:2.5.3"
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'

@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 public class Fragment1 extends Fragment {
     private static final String TAG = "MyApp";
@@ -26,9 +27,17 @@ public class Fragment1 extends Fragment {
         Toast toast = Toast.makeText(getActivity().getApplicationContext(),
                 "Тост 5", Toast.LENGTH_SHORT);
 
-        Button button = (Button) getView().findViewById(R.id.button1);
+        Button button = (Button) getView().findViewById(R.id.button11);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_fragment1_to_fragment2);
+            }
+        });
 
     }
+
+    public void onFragment1BackClick() {}
 
 
     public void Play(View view){

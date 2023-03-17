@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 public class ExampleActivity extends AppCompatActivity {
 
@@ -13,35 +15,16 @@ public class ExampleActivity extends AppCompatActivity {
         super(R.layout.activity);
     }
 
+    NavController navController;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .setReorderingAllowed(true)
-                    .add(R.id.fragment_container_view, Fragment1.class, null)
-                    .commit();
-        }
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment);
     }
 
-    public void fr2(View view){
-        Fragment fragment2 = new Fragment2();
-
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction transaction = fm.beginTransaction();
-        transaction.replace(R.id.fragment_container_view, fragment2);
-        transaction.commit();
+    @Override
+    public boolean onSupportNavigateUp() {
+        return Navigation.findNavController(this, R.id.nav_host_fragment).navigateUp();
     }
-
-    public void fr3(View view){
-        Fragment fragment3 = new Fragment3();
-
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction transaction = fm.beginTransaction();
-        transaction.replace(R.id.fragment_container_view, fragment3);
-        transaction.commit();
-    }
-
 
 }
