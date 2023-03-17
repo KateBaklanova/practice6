@@ -14,7 +14,14 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    buildscript {
+        repositories {
+            google()
+        }
+        dependencies {
+            classpath "android.arch.navigation:navigation-safe-args-gradle-plugin:1.0.0-alpha02"
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -28,7 +35,6 @@ android {
 }
 
 dependencies {
-
 
     // nav_version = "2.5.0" //Номер версии может меняться
     // Feature module Support

@@ -31,7 +31,9 @@ public class Fragment1 extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_fragment1_to_fragment2);
+                Bundle bundle = new Bundle();
+                bundle.putString("example", "example");
+                Navigation.findNavController(view).navigate(R.id.action_fragment1_to_fragment2, bundle);
             }
         });
 
