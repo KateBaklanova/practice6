@@ -1,10 +1,19 @@
 package com.example.pr5;
 
+import static android.content.Context.NOTIFICATION_SERVICE;
+
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -18,6 +27,18 @@ public class Fragment1 extends Fragment {
         super.onCreate(savedInstanceState);
         Toast toast = Toast.makeText(getActivity().getApplicationContext(),
                 "Тост 1", Toast.LENGTH_SHORT);
+        NotificationManager notificationManager =
+                (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel("1", "My channel",
+                    NotificationManager.IMPORTANCE_HIGH);
+            channel.setDescription("My channel description");
+            channel.enableLights(true);
+            channel.setLightColor(Color.RED);
+            channel.enableVibration(false);
+            notificationManager.createNotificationChannel(channel);
+        }
         toast.show();
     }
 
@@ -27,12 +48,21 @@ public class Fragment1 extends Fragment {
         Toast toast = Toast.makeText(getActivity().getApplicationContext(),
                 "Тост 5", Toast.LENGTH_SHORT);
 
+
         Button button = (Button) getView().findViewById(R.id.button11);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
                 bundle.putString("example", "example");
+                NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getActivity(), "1");
+                mBuilder.setContentTitle("Notification Alert, Click Me!");
+                mBuilder.setSmallIcon(R.drawable.ic_launcher_background);
+                mBuilder.setContentText("Hi, This is Android Notification Detail!");
+                NotificationManager mNotificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+                Log.e(TAG, "ssslls");
+// notificationID allows you to update the notification later on.
+                mNotificationManager.notify(0, mBuilder.build());
                 Navigation.findNavController(view).navigate(R.id.action_fragment1_to_fragment2, bundle);
             }
         });
