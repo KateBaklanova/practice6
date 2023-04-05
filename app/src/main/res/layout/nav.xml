@@ -5,7 +5,7 @@
     app:startDestination="@+id/blankFragment">
 <fragment
 android:id="@+id/fr1"
-android:name="com.example.pr5.Fragment1"
+android:name="com.example.pr5.UI.Fragment1"
 android:label="Blank"
 tools:layout="fragment1">
 </fragment>

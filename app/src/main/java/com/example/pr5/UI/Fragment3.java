@@ -1,4 +1,4 @@
-package com.example.pr5;
+package com.example.pr5.UI;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +11,8 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.pr5.R;
 
 import java.util.ArrayList;
 

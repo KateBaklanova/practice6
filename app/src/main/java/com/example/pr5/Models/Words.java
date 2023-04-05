@@ -1,4 +1,4 @@
-package com.example.pr5;
+package com.example.pr5.Models;
 
 public class Words {
 

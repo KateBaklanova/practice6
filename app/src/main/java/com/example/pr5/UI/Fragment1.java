@@ -1,4 +1,4 @@
-package com.example.pr5;
+package com.example.pr5.UI;
 
 import static android.content.Context.NOTIFICATION_SERVICE;
 
@@ -16,6 +16,8 @@ import android.widget.Toast;
 import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+
+import com.example.pr5.R;
 
 public class Fragment1 extends Fragment {
     private static final String TAG = "MyApp";

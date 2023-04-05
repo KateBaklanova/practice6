@@ -9,20 +9,22 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.pr5.Models.Words;
+
 import java.util.List;
 
 public class WordsAdapter extends RecyclerView.Adapter<WordsAdapter.ViewHolder>{
 
-    private OnNoteListener mOnNoteListener;
+    public OnNoteListener mOnNoteListener;
     public interface OnNoteListener {
         void onNoteClick(int position);
     }
 
-    private final LayoutInflater inflater;
-    private final List<Words> words;
-    private static final String TAG = "MyApp";
+    public final LayoutInflater inflater;
+    public final List<Words> words;
+    public static final String TAG = "MyApp";
 
-    WordsAdapter(Context context, List<Words> words, OnNoteListener mOnNoteListener) {
+    public WordsAdapter(Context context, List<Words> words, OnNoteListener mOnNoteListener) {
         this.words = words;
         this.mOnNoteListener = mOnNoteListener;
         this.inflater = LayoutInflater.from(context);
