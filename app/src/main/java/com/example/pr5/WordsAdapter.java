@@ -1,0 +1,66 @@
+package com.example.pr5;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.List;
+
+public class WordsAdapter extends RecyclerView.Adapter<WordsAdapter.ViewHolder>{
+
+    private OnNoteListener mOnNoteListener;
+    public interface OnNoteListener {
+        void onNoteClick(int position);
+    }
+
+    private final LayoutInflater inflater;
+    private final List<Words> words;
+    private static final String TAG = "MyApp";
+
+    WordsAdapter(Context context, List<Words> words, OnNoteListener mOnNoteListener) {
+        this.words = words;
+        this.mOnNoteListener = mOnNoteListener;
+        this.inflater = LayoutInflater.from(context);
+    }
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+        View view = inflater.inflate(R.layout.list_item, parent, false);
+        return new ViewHolder(view, mOnNoteListener);
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        Words W = words.get(position);
+        holder.imgView.setImageResource(W.getFlagResource());
+        holder.themeView.setText(W.getCapital());
+    }
+
+    @Override
+    public int getItemCount() {
+        return words.size();
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        final ImageView imgView;
+        final TextView themeView;
+        OnNoteListener onNoteListener;
+        ViewHolder(View view, OnNoteListener onNoteListener){
+            super(view);
+            imgView = view.findViewById(R.id.img);
+            themeView = view.findViewById(R.id.theme);
+            this.onNoteListener = onNoteListener;
+            view.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            onNoteListener.onNoteClick(getAdapterPosition());
+        }
+    }
+}
