@@ -4,7 +4,9 @@ plugins {
 
 android {
     compileSdk 33
-
+    dataBinding {
+        enabled = true
+    }
     defaultConfig {
         applicationId "com.example.pr5"
         minSdk 16

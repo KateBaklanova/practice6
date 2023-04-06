@@ -52,6 +52,13 @@ public class Fragment1 extends Fragment {
 
 
         Button button = (Button) getView().findViewById(R.id.button11);
+        Button button1 = (Button) getView().findViewById(R.id.button12);
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.fragment4);
+            }
+        });
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

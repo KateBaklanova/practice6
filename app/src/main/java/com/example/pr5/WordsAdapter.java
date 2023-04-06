@@ -21,13 +21,16 @@ public class WordsAdapter extends RecyclerView.Adapter<WordsAdapter.ViewHolder>{
     }
 
     public final LayoutInflater inflater;
-    public final List<Words> words;
+    public static List<Words> words;
     public static final String TAG = "MyApp";
 
     public WordsAdapter(Context context, List<Words> words, OnNoteListener mOnNoteListener) {
         this.words = words;
         this.mOnNoteListener = mOnNoteListener;
         this.inflater = LayoutInflater.from(context);
+    }
+    public static void updateWordsList(final List<Words> words2) {
+        words = words2;
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

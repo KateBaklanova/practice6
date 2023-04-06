@@ -17,28 +17,22 @@ import com.example.pr5.R;
 import java.util.ArrayList;
 
 
-public class Fragment3 extends Fragment {
+public class Fragment4 extends Fragment {
 
 
-    public Fragment3() {
-        super(R.layout.fragment3);
+    public Fragment4() {
+        super(R.layout.fragment4);
     }
 
     public void onResume() {
 
         super.onResume();
-        Button button1 = (Button) getView().findViewById(R.id.button32);
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.fragment5);
-            }
-        });
-        Button button = (Button) getView().findViewById(R.id.button31);
+
+        Button button = (Button) getView().findViewById(R.id.button4);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.fragment2);
+                Navigation.findNavController(view).navigate(R.id.fragment1);
             }
         });
     }

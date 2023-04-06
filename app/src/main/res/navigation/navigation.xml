@@ -11,6 +11,9 @@
         <action
             android:id="@+id/action_fragment3_to_fragment2"
             app:destination="@id/fragment2" />
+        <action
+            android:id="@+id/action_fragment3_to_fragment5"
+            app:destination="@id/fragment5" />
     </fragment>
     <fragment
         android:id="@+id/fragment2"
@@ -34,5 +37,24 @@
             android:name="level"
             app:argType="string"
             android:defaultValue="A1" />
+        <action
+            android:id="@+id/action_fragment1_to_fragment49"
+            app:destination="@id/fragment4" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment4"
+        android:name="com.example.pr5.UI.Fragment4"
+        android:label="Fragment4" >
+        <action
+            android:id="@+id/action_fragment4_to_fragment124"
+            app:destination="@id/fragment1" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment5"
+        android:name="com.example.pr5.UI.Fragment5"
+        android:label="Fragment5" >
+        <action
+            android:id="@+id/action_fragment5_to_fragment3"
+            app:destination="@id/fragment3" />
     </fragment>
 </navigation>

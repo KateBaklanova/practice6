@@ -8,89 +8,61 @@
     android:layout_height="match_parent"
     tools:context=".UI.Fragment1">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:src="@raw/lll"
-            />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
-            android:layout_weight="1"
+            android:gravity="center"
             android:background="@color/violet"
             android:orientation="vertical">
 
-            <ImageView
+            <Button
+                android:id="@+id/button12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:text="настройка" />
+
+            <TextView
+                android:id="@+id/t1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Первый экран"
+                android:textSize="33dp"
+                android:textColor="@color/teal_700"
+                android:gravity="center" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="300dp"
+                android:scaleType="fitXY"
                 android:gravity="center"
                 android:src="@drawable/f5"
                 />
 
-            <RelativeLayout android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+            <Button
+                android:id="@+id/button11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:onClick="Play"
+                android:orientation="vertical"
+                android:text="ИГРАТЬ!" />
 
-                <Button
-                    android:id="@+id/button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:onClick="Messages"
-                    android:text="НАЧАТЬ ПОИСК!">
-                </Button>
+            <TextView
+                android:layout_below="@id/button11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/progress"
 
-                <Button
-                    android:id="@+id/button11"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:onClick="Play"
-                    android:orientation="vertical"
-                    android:text="ИГРАТЬ!"></Button>
-                <TextView
-                    android:layout_below="@id/button11"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/progress"
-
-                    android:orientation="vertical"
-                    android:layout_weight="1"
-                    android:textSize="33dp"
-                    android:textColor="@color/white"
-                    android:gravity="center"></TextView>
-            </RelativeLayout>
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:textSize="33dp"
+                android:textColor="@color/white"
+                android:gravity="center" />
         </LinearLayout>
-
-    </LinearLayout>
-
-
-
-
-
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/t1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="21dp"
-            android:text="Первый экран"
-            android:textSize="33dp"
-            android:textColor="@color/teal_700"
-            android:gravity="center" />
-    </LinearLayout>
 </FrameLayout>
 
 
