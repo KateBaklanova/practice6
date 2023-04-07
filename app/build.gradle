@@ -41,6 +41,8 @@ dependencies {
     // nav_version = "2.5.0" //Номер версии может меняться
     // Feature module Support
     implementation "androidx.navigation:navigation-dynamic-features-fragment:2.5.3"
+    implementation 'androidx.room:room-common:2.3.0'
+    implementation 'androidx.room:room-runtime:2.3.0'
     // Testing Navigation
     androidTestImplementation "androidx.navigation:navigation-testing:2.5.3"
     implementation "androidx.navigation:navigation-fragment:2.5.3"
@@ -51,4 +53,5 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    annotationProcessor 'androidx.room:room-compiler:2.3.0'
 }
