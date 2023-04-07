@@ -1,5 +1,7 @@
 package com.example.pr5.UI;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -33,6 +35,7 @@ public class Fragment4 extends Fragment {
 
     EditText inputText;
     TextView response;
+    public static final String APP_PREFERENCES_NAME = "name";
     Button saveButton;
     Button readButton;
 
@@ -53,7 +56,7 @@ public class Fragment4 extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
         inputText = (EditText) getActivity().findViewById(R.id.myInputText);
         response = (TextView) getActivity().findViewById(R.id.response);
-
+        SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
 
         saveButton = (Button) getActivity().findViewById(R.id.saveExternalStorage);
         File myExternalFile = new File("text.text");
@@ -61,9 +64,15 @@ public class Fragment4 extends Fragment {
             @Override
             public void onClick(View v) {
                 try {
+
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putString(APP_PREFERENCES_NAME, inputText.getText().toString());
+                    editor.apply();
+
                     FileOutputStream fos = new FileOutputStream(myExternalFile);
                     fos.write(inputText.getText().toString().getBytes());
                     fos.close();
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -77,22 +86,33 @@ public class Fragment4 extends Fragment {
             @Override
             public void onClick(View v) {
                 try {
+
+                    if(sharedPref.contains(APP_PREFERENCES_NAME)) {
+                        inputText.setText(sharedPref.getString(APP_PREFERENCES_NAME, ""));
+                        response.setText("Получение файла...");
+                    }
+                    else{
+                        response.setText("Не найдено");
+                    }
+
                     FileInputStream fis = new FileInputStream(myExternalFile);
                     DataInputStream in = new DataInputStream(fis);
                     BufferedReader br = new BufferedReader(new InputStreamReader(in));
                     String strLine;
+
+
                     while ((strLine = br.readLine()) != null) {
                         myData = myData + strLine;
                     }
+
                     in.close();
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
                 inputText.setText(myData);
-                response.setText("Получение файла...");
             }
         });
-
 
     }
     private static boolean isExternalStorageReadOnly() {
