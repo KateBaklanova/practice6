@@ -14,21 +14,34 @@
         android:orientation="vertical"
         tools:context=".Fragment5">
 
+        <TextView
+            android:id="@+id/t33"
+            android:text="Четвертый экран"
+            android:textSize="33dp"
+            android:textColor="@color/teal_700"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent" />
+        android:gravity="center" />
+
         <Button
             android:id="@+id/button5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:text="Отправить сообщение в поддержку"></Button>
+        android:gravity="center" />
 
-        <TextView android:id="@+id/t33"
-        android:text="Четвертый экран"
-        android:textSize="33dp"
-        android:textColor="@color/teal_700"
-        android:gravity="center"
+        <TextView
+            android:id="@+id/t333"
+            android:text="Получено сообщение..."
+            android:textSize="33dp"
+            android:textColor="@color/teal_700"
+            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" />
         android:gravity="center" />
 
         <RelativeLayout
