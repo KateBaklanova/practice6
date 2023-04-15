@@ -1,7 +1,12 @@
 package com.example.pr5.Models;
 
-public class Words {
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
+@Entity
+public class Words {
+    @PrimaryKey
+    public int id;
         private String theme;  // столица
         private int img;
 

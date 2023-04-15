@@ -59,11 +59,12 @@ public class Fragment5 extends Fragment{
 
         View contentView = inflater.inflate(R.layout.fragment5, container, false);
 
-        TextView t333 = (TextView) contentView.findViewById(R.id.t333);
-        Button button1 = (Button) contentView.findViewById(R.id.button5);
+        ArrayList<String> options = new ArrayList<String>();
         ListView listView = (ListView) contentView.findViewById(R.id.listView);
 
-        ArrayList<String> options = new ArrayList<String>();
+        TextView t333 = (TextView) contentView.findViewById(R.id.t333);
+        Button button1 = (Button) contentView.findViewById(R.id.button5);
+
 
         Intent intent = getActivity().getIntent();
         String action = intent.getAction();
